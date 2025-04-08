@@ -11,7 +11,6 @@ const closeModal = document.querySelector(".close");
 let currentPage = 1;
 let totalPages = 1;
 
-// Solo filtramos por status ahora
 async function fetchCharacters(page = 1, status = "all") {
   let url = `${API_URL}?page=${page}`;
   if (status !== "all" && status !== "") {
@@ -75,7 +74,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// Solo usamos status
 filterButton.addEventListener("click", () => {
   currentPage = 1;
   fetchCharacters(currentPage, statusFilter.value);
@@ -112,5 +110,4 @@ function renderPagination() {
   paginationContainer.appendChild(nextButton);
 }
 
-// Al cargar, mostramos todos
 fetchCharacters();
